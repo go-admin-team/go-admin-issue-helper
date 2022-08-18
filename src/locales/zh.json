@@ -1,8 +1,8 @@
 {
   "intro.modal": "为什么要有这么严格的 issue 规定",
   "issue.create": "创建",
-  "issue.react": "Go",
-  "issue.reactHelp": "go / react / vue 版本",
+  "issue.go": "Go",
+  "issue.goHelp": "go / react / vue 版本",
   "issue.browser": "浏览器",
   "issue.browserHelp": "浏览器版本",
   "issue.system": "系统",

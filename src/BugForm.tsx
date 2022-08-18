@@ -29,24 +29,25 @@ const BugForm: React.FC<Props> = ({ versions }) => (
               />
             }
           >
-            <Select showSearch>
+            {/* <Select showSearch>
               {versions.map(version => (
                 <Option key={version} value={version}>
                   {version}
                 </Option>
               ))}
-            </Select>
+            </Select> */}
+            <Input />
           </Form.Item>
         </Col>
         <Col span={12} offset={1}>
           {/* react version */}
           <Form.Item
-            name="react"
+            name="go"
             rules={[{ required: true }]}
-            label={<FormattedMessage id="issue.react" defaultMessage="Go" />}
+            label={<FormattedMessage id="issue.go" defaultMessage="Go" />}
             extra={
               <FormattedMessage
-                id="issue.reactHelp"
+                id="issue.goHelp"
                 defaultMessage="go /react / vue version..."
               />
             }

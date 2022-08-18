@@ -45,7 +45,7 @@ const IssueForm: React.FC<{}> = () => {
 
   const formRef = React.useRef<HTMLDivElement | null>(null);
   const { similarIssues, searchIssues } = useSimilarIssues();
-  const { repoVersions, fetchVersions } = useVersions();
+  // const { repoVersions, fetchVersions } = useVersions();
 
   const bindModalHandler = React.useCallback(() => {
     formRef.current!.addEventListener("click", (e: Event) => {
@@ -92,17 +92,17 @@ const IssueForm: React.FC<{}> = () => {
     [form]
   );
 
-  const handleRepoChange = React.useCallback(
-    (repo: string) => {
-      if (!repoVersions[repo]) {
-        fetchVersions(repo);
-      }
-      form.setFieldsValue({
-        version: repoVersions?.[repo]?.[0]
-      });
-    },
-    [form, fetchVersions, repoVersions]
-  );
+  // const handleRepoChange = React.useCallback(
+  //   (repo: string) => {
+  //     if (!repoVersions[repo]) {
+  //       fetchVersions(repo);
+  //     }
+  //     form.setFieldsValue({
+  //       version: repoVersions?.[repo]?.[0]
+  //     });
+  //   },
+  //   [form, fetchVersions, repoVersions]
+  // );
 
   const handleTypeChange = React.useCallback(() => {
     restoreValues(["type"]);
@@ -136,13 +136,13 @@ const IssueForm: React.FC<{}> = () => {
   }, [form, getContent]);
 
   React.useEffect(() => {
-    fetchVersions(params.repo);
+    // fetchVersions(params.repo);
     bindModalHandler();
     restoreValues();
-  }, [fetchVersions, bindModalHandler, restoreValues]);
+  }, [bindModalHandler, restoreValues]);
 
   const repo = form.getFieldValue("repo");
-  const versions = repoVersions[repo] || [];
+  // const versions = repoVersions[repo] || [];
 
   const similarIssuesList = (
     <Form.Item className={styles.similar}>
@@ -167,8 +167,8 @@ const IssueForm: React.FC<{}> = () => {
         size="large"
         initialValues={{
           repo: params.repo,
-          type: "bug",
-          version: versions[0]
+          type: "bug"
+          // version: versions[0]
         }}
         onFinish={() => {
           triggerPreview(true);
@@ -220,12 +220,10 @@ const IssueForm: React.FC<{}> = () => {
                 />
               }
             >
-              <Select onChange={handleRepoChange}>
+              <Select>
                 <Option value="go-admin">go-admin</Option>
                 <Option value="go-admin-ui">go-admin-ui</Option>
-                <Option value="go-admin-core">
-                  go-admin-core
-                </Option>
+                <Option value="go-admin-core">go-admin-core</Option>
               </Select>
             </Form.Item>
           </Col>
@@ -272,7 +270,7 @@ const IssueForm: React.FC<{}> = () => {
             form.getFieldValue("type") === "feature" ? (
               <FeatureForm />
             ) : (
-              <BugForm versions={versions} />
+              <BugForm versions={[]} />
             )
           }
         </Form.Item>
