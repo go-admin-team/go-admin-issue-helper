@@ -18,6 +18,8 @@ jobs:
         run:  |
           yarn
           npm run deploy
+          git config --global user.email "zwj777@live.com"
+          git config --global user.name "wenjianzhang"
 #       - name: Deploy with gh-pages
 #         run: |
 #           git remote set-url origin https://wenjianzhang:${{secrets.GT_TOKEN}}@github.com/${{secrets.GT_REPOSITORY}}.git
@@ -25,7 +27,7 @@ jobs:
 #         env:
 #           GITHUB_TOKEN: ${{ secrets.GT_TOKEN }}
 #           GITHUB_REPOSITORY: ${{ secrets.GT_REPOSITORY }}
-      - name: Build and Deploy
+      - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         env:
           token: ${{ secrets.GT_TOKEN }}
