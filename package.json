@@ -1,0 +1,59 @@
+{
+  "name": "go-admin-issue-helper",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@ant-design/icons": "^4.2.1",
+    "antd": "^4.3.4",
+    "compare-versions": "^3.1.0",
+    "gh-pages": "^3.2.3",
+    "react": "^16.8.6",
+    "react-context-io": "^0.0.7",
+    "react-dom": "^16.8.6",
+    "react-intl": "^2.4.0",
+    "react-scripts": "^3.0.0",
+    "remarkable": "^1.7.1",
+    "sass": "^1.49.9",
+    "whatwg-fetch": "^2.0.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "analyze": "source-map-explorer 'build/static/js/*.js'",
+    "deploy": "npm run build && cp CNAME build && gh-pages -d build"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.18",
+    "@types/node": "^11.13.9",
+    "@types/react": "^16.8.15",
+    "@types/react-dom": "^16.8.4",
+    "@types/react-intl": "^2.3.2",
+    "@types/remarkable": "^1.7.4",
+    "husky": "^4.2.5",
+    "mdx.macro": "^0.2.8",
+    "prettier": "^1.17.0",
+    "pretty-quick": "^2.0.1",
+    "reactive.macro": "^0.0.7",
+    "source-map-explorer": "^1.8.0",
+    "typescript": "^4.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
