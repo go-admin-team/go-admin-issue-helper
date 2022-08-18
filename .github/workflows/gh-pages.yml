@@ -14,8 +14,10 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: "14"
-      - name: install
-        run: yarn
+      - name: Install and Build
+        run:  |
+          yarn
+          npm run deploy
 #       - name: Deploy with gh-pages
 #         run: |
 #           git remote set-url origin https://wenjianzhang:${{secrets.GT_TOKEN}}@github.com/${{secrets.GT_REPOSITORY}}.git
@@ -26,7 +28,5 @@ jobs:
       - name: Build and Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         env:
-          ACCESS_TOKEN: ${{ secrets.GT_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: build
-          BUILD_SCRIPT: yarn && npm run deploy -- -u "github-actions-bot <support+actions@github.com>"
+          token: ${{ secrets.GT_TOKEN }}
+          folder: build
