@@ -17,7 +17,7 @@ jobs:
       - name: Install and Build
         run:  |
           yarn
-          git remote set-url origin https://wenjianzhang:${{secrets.GT_TOKEN}}@github.com/${{secrets.GT_REPOSITORY}}.git
+          git remote set-url origin https://github.com/go-admin-team/go-admin-issue-helper.git
           git config --global user.email "zwj777@live.com"
           git config --global user.name "wenjianzhang"
           npm run deploy
